@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from "react";
+import ButtonAppBar from "./layout/ButtonAppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import Yeeet from "./test/Yeeet";
+import Yeet from "./test/Yeet";
+import { Provider } from "react-redux";
+import store from "./store";
+export class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div>
+          {" "}
+          <Fragment>
+            <ButtonAppBar />
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+            <CssBaseline />
+            <Container maxWidth="sm">
+              <Typography
+                component="div"
+                style={{ backgroundColor: "#cfe8fc", height: "100vh" }}
+              >
+                <Yeet />
+                <Yeeet />
+              </Typography>
+            </Container>
+          </Fragment>
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
